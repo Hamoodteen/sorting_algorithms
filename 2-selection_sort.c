@@ -1,6 +1,16 @@
 #include "sort.h"
 
-void swapint(int *a, int *b);
+/**
+ * swapint - f
+ * @a: a
+ * @b: b
+*/
+void swapint(int *a, int *b)
+{
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
 
 /**
  * selection_sort - f
