@@ -19,13 +19,14 @@ void swapint(int *a, int *b)
 */
 void selection_sort(int *array, size_t size)
 {
-	size_t i, j = 0;
+	size_t i, j;
 
 	if ((array == NULL) || (size == 0))
 		return;
 	for (i = 0; i < size - 1; i++)
 	{
-		while (j != size - 1 - i)
+		j = i;
+		while (j < size - 1 - i)
 		{
 			if (array[i] > array[j + 1])
 			{
