@@ -19,7 +19,7 @@ void swapint(int *a, int *b)
 */
 void bubble_sort(int *array, size_t size)
 {
-	size_t i;
+	size_t i, j;
 
 	if (size < 2)
 	{
@@ -28,8 +28,11 @@ void bubble_sort(int *array, size_t size)
 	}
 	for (i = 0; i < size - 1; i++)
 	{
-		if (array[i] > array[i + 1])
-			swapint(&array[i], &array[i + 1]);
+		for (j = 0; j < size - 1 - i; j++)
+		{
+			if (array[j] > array[j + 1])
+				swapint(&array[j], &array[j + 1]);
+		}
 		print_array(array, size);
 	}
 }
