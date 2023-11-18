@@ -32,6 +32,7 @@ void insertion_sort_list(listint_t **list)
 	{
 		if ((*list)->n > (*list)->next->n)
 			movehead((list), (*list)->next);
+		print_list((*list));
 		(*list) = (*list)->next;
 	}
 }
