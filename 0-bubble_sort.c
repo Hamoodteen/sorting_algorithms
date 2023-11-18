@@ -35,6 +35,7 @@ void bubble_sort(int *array, size_t size)
 			{
 				swapint(&array[j], &array[j + 1]);
 				print_array(array, size);
+				swapped = 1;
 			}
 		}
 		if (swapped == 0)
