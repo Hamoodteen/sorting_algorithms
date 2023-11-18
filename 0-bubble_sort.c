@@ -1,6 +1,18 @@
 #include "sort.h"
 
 /**
+ * swapint0 - f
+ * @a: a
+ * @b: b
+*/
+void swapint0(int *a, int *b)
+{
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+/**
  * bubble_sort - f
  * @array: int
  * @size: size
@@ -18,7 +30,7 @@ void bubble_sort(int *array, size_t size)
 		{
 			if (array[j] > array[j + 1])
 			{
-				swapint(&array[j], &array[j + 1]);
+				swapint0(&array[j], &array[j + 1]);
 				print_array(array, size);
 				swapped = true;
 			}

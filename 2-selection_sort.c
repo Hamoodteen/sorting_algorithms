@@ -1,6 +1,18 @@
 #include "sort.h"
 
 /**
+ * swapint2 - f
+ * @a: a
+ * @b: b
+*/
+void swapint2(int *a, int *b)
+{
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+/**
  * selection_sort - f
  * @array: arr
  * @size: size
@@ -23,7 +35,7 @@ void selection_sort(int *array, size_t size)
 		}
 		if (mini != i)
 		{
-			swapint(&array[i], &array[mini]);
+			swapint2(&array[i], &array[mini]);
 			print_array(array, size);
 		}
 	}
