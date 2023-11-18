@@ -1,18 +1,6 @@
 #include "sort.h"
 
 /**
- * swapint - f
- * @a: a
- * @b: b
-*/
-void swapint(int *a, int *b)
-{
-	int temp = *a;
-	*a = *b;
-	*b = temp;
-}
-
-/**
  * selection_sort - f
  * @array: arr
  * @size: size
