@@ -26,16 +26,14 @@ void selection_sort(int *array, size_t size)
 	for (i = 0; i < size - 1; i++)
 	{
 		j = i;
-		while (j < size - 1 - i)
+		while (j < size - 1)
 		{
 			if (array[i] > array[j + 1])
 			{
 				swapint(&array[i], &array[j + 1]);
 				print_array(array, size);
-				break;
 			}
-			else
-				j++;
+			j++;
 		}
 	}
 }
