@@ -28,7 +28,7 @@ void insertion_sort_list(listint_t **list)
 {
 	if (list == NULL)
 		return;
-	while (!(*list)->next)
+	while ((*list)->next)
 	{
 		if ((*list)->n > (*list)->next->n)
 			movehead((list), (*list)->next);
