@@ -19,22 +19,21 @@ void swapint(int *a, int *b)
 */
 void selection_sort(int *array, size_t size)
 {
-	size_t i = 0, j, mini;
+	size_t i, j = 0;
 
 	if ((array == NULL) || (size == 0))
 		return;
-	mini = i;
-	for (j = i + 1; j < size; j++)
+	for (i = 0; i < size - 1; i++)
 	{
-		if (array[j] < array[mini])
+		while (j != size - 1 - i)
 		{
-			mini = j;
+			if (array[i] > array[j + 1])
+			{
+				swapint(&array[i], &array[j + 1]);
+				print_array(array, size);
+			}
+			else
+				j++;
 		}
-	}
-
-	if (mini != i)
-	{
-		swapint(&array[i], &array[mini]);
-		print_array(array, size);
 	}
 }
