@@ -33,7 +33,6 @@ void selection_sort(int *array, size_t size)
 				mini = j;
 			}
 		}
-
 		if (mini != i)
 		{
 			swapint(&array[i], &array[mini]);
