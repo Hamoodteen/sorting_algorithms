@@ -28,31 +28,32 @@ void insertion_sort_list(listint_t **list)
 {
 	listint_t *sorted = NULL;
 	listint_t *current = *list;
-	listint_t *next, *temp;
+	listint_t *temp, *prev, *ptr;
 
 	while (current != NULL)
 	{
-		next = current->next;
-		if ((sorted == NULL) || (sorted->n >= current->n))
+		temp = current->next;
+		prev = NULL;
+		ptr = sorted;
+		while ((ptr != NULL) && (ptr->n <= current->n))
 		{
-			current->next = sorted;
+			prev = ptr;
+			ptr = ptr->next;
+		}
+		if (prev == NULL)
+		{
 			current->prev = NULL;
-			if (sorted != NULL)
-				sorted->prev = current;
 			sorted = current;
 		}
 		else
 		{
-			temp = sorted;
-			while ((temp->next != NULL) && (temp->next->n < current->n))
-				temp = temp->next;
-			current->next = temp->next;
-			if (temp->next != NULL)
-				temp->next->prev = current;
-			temp->next = current;
-			current->prev = temp;
+			prev->next = current;
+			current->prev = prev;
 		}
-		current = next;
+		current->next = ptr;
+		if (ptr != NULL)
+			ptr->prev = current;
+		current = temp;
 	}
 	*list = sorted;
 }
