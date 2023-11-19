@@ -26,15 +26,27 @@ void movehead(listint_t **head, listint_t *move)
 */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *curr = (*list);
+	listint_t *sorted = NULL;
+	listint_t *current = *list;
+	listint_t *next, *temp;
 
-	if ((list == NULL) || (*list == NULL))
-		return;
-	while (curr != NULL)
+	while (current != NULL)
 	{
-		while ((curr->prev != NULL) && (curr->n < curr->prev->n))
-			movehead(list, curr->prev);
-		print_list((*list));
-		curr = curr->next;
+		next = current->next;
+		if ((sorted == NULL) || (sorted->n >= current->n))
+		{
+			current->next = sorted;
+			sorted = current;
+		}
+		else
+		{
+			temp = sorted;
+			while ((temp->next != NULL) && (temp->next->n < current->n))
+				temp = temp->next;
+			current->next = temp->next;
+			temp->next = current;
+		}
+		current = next;
 	}
+	*list = sorted;
 }
